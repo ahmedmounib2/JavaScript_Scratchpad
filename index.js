@@ -488,4 +488,481 @@ function compareStrictEquality(c,d) {
   return "c not equals d"
 }
 
-console.log(compareStrictEquality(10, "10"));
+console.log(compareStrictEquality(10, "10")); 
+
+
+// Comparison with inequality operator
+function testNotEqual(val) {
+  if (val != 99) {
+    return "Not Equal";
+  }
+  return "Equal";
+}
+
+console.log(testNotEqual(10));
+
+// Comparison with stric inequality operator !==
+function testStrictNotEqual(val) {
+  if (val !== 17) {
+    return "Not Equal";
+  }
+  return "Equal";
+}
+console.log(testStrictNotEqual("17"));
+
+
+// Comparison with the Logical And Operator
+function testGreaterThan(val) {
+  if (val > 100) {
+    return "Over 100";
+  }
+  if (val > 10) {
+    return "Over 10";
+  }
+  return "10 or Under";
+}
+console.log(testGreaterThan(10));
+
+
+// Comparison with the Greater Than or Equal to Operator
+function testGreaterThanOrEqual(val) {
+  if (val >= 20) {
+    return "20 or Over"
+  }
+  if (val >= 10){
+    return "10 or Over";
+  }
+  return "Less than 10";
+}
+
+console.log(testGreaterThanOrEqual(10));
+
+// Comparison with the Logical And Operator &&
+// nestedif test if value is less than or equal 50 and greater than or equal 25
+function testLogicalAndNestedIf(val) {
+  if (val <= 50) {
+    if (val >= 25) {
+      return "Yes";
+    }
+  }
+  return "No";
+}
+
+function testLogicalAndOperator(val) {
+  if (val <= 50 && val >= 25) {
+      return "Yes";
+    }
+  return "No";
+}
+console.log(testLogicalAndOperator(10));
+console.log(testLogicalAndNestedIf(10));
+
+
+// comparisons with the Logical Or Operator ||
+function testLogicalOr(val) {
+  if (val <10 || val >20) {
+    return "outside"
+  }
+  return "Inside"
+}
+console.log(testLogicalOr(15));
+
+// Else Statements
+function testElse(val) {
+  var result = "";
+  if (val > 5) {
+    result = "Bigger than 5";
+  } else {
+    result = "5 or smaller";
+  }
+  return result;
+}
+console.log(testElse(100))
+
+// Else If statements
+function testElseIf(val) {
+  if (val >10) {
+    return "Greater Than 10";
+  } else if (val < 5) {
+    return "Less than 5";
+  } else {
+    return "Between 5 and 10";
+  }
+}
+console.log(testElseIf(11));
+console.log(testElseIf(7));
+console.log(testElseIf(3));
+
+// Chaining If Else Statements
+function testSize(num) {
+  if (num < 5) {
+    return "Tiny";
+  } else if (num <10) {
+    return "Small";
+  } else if (num < 15) {
+    return "Medium";
+  } else if (num < 20) {
+    return "Large";
+  } else {
+    return "Huge";
+  }
+}
+console.log(testSize(20));
+
+
+// Golf Code
+var names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go-Home!"]
+function golfScore(par, strokes) {
+  if (strokes == 1) {
+    return names[0]
+  } else if (strokes <= par -2) {
+    return names[1]
+  } else if (strokes == par -1) {
+    return names[2]
+  } else if (strokes == par ) {
+    return names[3]
+  } else if (strokes == par + 1) {
+    return names[4]
+  } else if (strokes == par + 2) {
+    return names[5]
+  } else if (strokes >= par + 3) {
+    return names[6]
+  } 
+}
+
+console.log(golfScore(5, 4));
+console.log(golfScore(5, 2));
+console.log(golfScore(5, 8));
+
+/* Switch Statments
+Switch statments Tests val and sets answer for following conditions
+1 - "alpha"
+2 - "beta"
+3 - "gamma"
+4 - "delta"
+*/
+function caseInSwitch(val) {
+  var answer = "";
+  switch (val) {
+    case 1: // test if case === val
+      answer = "alpha";
+      break;
+    case 2:
+      answer = "beta";
+      break
+    case 3:
+      answer = "gamma";
+      break
+    case 4:
+      answer = "delta";
+      break
+  }
+
+  return answer;
+}
+console.log(caseInSwitch(1));
+console.log(caseInSwitch(2));
+console.log(caseInSwitch(3));
+
+
+// Default Option in Switch Statments - like else or else if statments 
+
+function switchOfStuff(val) {
+  var answer = "";
+  switch (val) {
+    case "a": // test if case === val
+      answer = "apple";
+      break;
+    case "b":
+      answer = "bird";
+      break
+    case "c":
+      answer = "cat";
+      break
+    default: // like else in switch statments
+      answer = "Stuff";
+      break;
+  }
+
+  return answer;
+}
+console.log(switchOfStuff("a"));
+console.log(switchOfStuff(2)); // return an empty string as 2 is not a set case, without editting default
+
+
+// Multiple Identical Options in Switch Statments
+function sequentialSizes(val) {
+  var answer = "";
+  switch(val){
+    case 1:  // if its 1 2 or 3 we get low
+    case 2:
+    case 3:
+      answer = "Low";
+      break;
+    case 4:
+    case 5:
+    case 6:
+      answer = "Mid";
+      break;
+    case 7:
+    case 8:
+    case 9:
+      answer = "High";
+      break;
+
+  }
+  return answer;
+}
+
+console.log(sequentialSizes(1));
+
+
+// Returning Boolean Values from functions 
+function isLess(a, b) {
+  return a < b;
+}
+console.log(isLess(10,15));
+console.log(isLess(20,15));
+
+
+// returning Early Pattern from Functions
+function abTest(a, b) {
+  if (a < 0 || b < 0) {
+    return "undefined";
+  }
+
+  return Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2));
+}
+
+console.log(abTest(2,2));
+console.log(abTest(-2,2));
+
+
+// Counting Cards
+var count = 0;
+
+function cc(card) {
+  switch(card) {
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      count++;
+      break;
+    case 10:
+    case "J":
+    case "Q":
+    case "K":
+    case "A":
+      count--;
+      break;
+  }
+
+  var holdbet = 'Hold'
+  if (count > 0) {
+    holdbet = 'Bet'
+
+  
+  }
+
+  return count + " " + holdbet;
+
+}
+
+cc(2); cc('k'); cc(10); cc('K'); cc('A');
+
+console.log(cc(4));
+
+
+// build JavaScript Objects
+var ourDog = {
+  "name": "Toska",
+  "legs": 3,
+  "tail": 2,
+  "friends": []
+};
+
+var myDog = {
+  "name": "Bluffy",
+  "legs": 4,
+  "tail": 1,
+  "friends": ["everything!"]
+};
+
+// Accessing Object Properties with Dot Notation
+var testObj = {
+  "hat": "ballcap",
+  "shirt": "Jersey",
+  "shoes": "cleats"
+};
+
+var hatValue = testObj.hat;
+var shirtValue = testObj.shirt;
+console.log(shirtValue);
+var shoeValue = testObj['shoes']
+console.log(shoeValue);
+// Accessing Object Properties with Bracket Notation
+var testObj = {
+  "an entree": "hamburger",
+  "my side": "veggies",
+  "the drink": "water"
+};
+
+var entreeValue = testObj["an entree"];
+var drinkValue = testObj['the drink'];
+console.log(entreeValue);
+console.log(drinkValue);
+
+// Accessing Object Properties with Variables
+var testObj = {
+  12: "Namath",
+  16: "Montana",
+  19: "Unitas"
+};
+
+var playerNumber = 16;
+var player = testObj[playerNumber];
+
+// updating Object Properties
+var ourDog = {
+  "name": "Toska",
+  "legs": 3,
+  "tail": 2,
+  "friends": []
+};
+
+ourDog.name = "Susu"; // now ourDog name is Susu and legs are 4
+ourDog.legs = 4;
+
+// add new properties to an object
+ourDog['mood'] = "happy";
+
+// delete properties from an object
+delete ourDog.mood;
+
+// Using Objects for Lookups
+/*
+function phonetickLookup(val) {
+  var result = "";
+  switch (val) {
+    case "alpha": // test if case === val
+      answer = "adams";
+      break;
+    case "bravo":
+      answer = "boston";
+      break
+    case "charlie":
+      answer = "chicago";
+      break
+
+  }
+
+  return result;
+}
+*/
+
+
+function phonetickLookup(val) {
+  var result = "";
+
+  var lookup = {
+    "alpha": "adams",
+    "bravo": "boston",
+    "charlie": "chicago"
+  };
+  result = lookup[val];
+
+  return result;
+}
+console.log(phonetickLookup("charlie"));
+
+
+// Testing Objects for Properties
+var myObj = {
+  gift: "pony",
+  pet : "kitten",
+  bed: "sleigh"
+};
+
+function checkObj(checkProp) {
+  if (myObj.hasOwnProperty(checkProp)) {
+    return myObj[checkProp];
+  } else {
+    return "Not found"
+  }
+}
+console.log(checkObj("gift"));
+
+
+// manipulating complex Objects
+var myMusic = [
+  {
+    "artist": "Billy Joel",
+    "title": "Piano Man",
+    "release_year": [
+      "CD",
+      "8T",
+      "LP"
+    ],
+    "gold": "true"
+  },
+  // add to the array here
+  {
+    "artist": "Beau",
+    "title": "Cereal Man",
+    "release_year": 2003,
+    "formats": [
+      "youtube video"
+    ]
+  }
+];
+
+
+// Accessing Nested Objects
+var myStorage = {
+  "car": {
+    "inside": {
+      "glove box": "maps",
+      "passenger seat": "crumbs"
+    },
+    "outside": {
+      "trunk": "jack"
+    }
+  }
+};
+// trying to access the glovebox contents
+var gloveBoxContents = myStorage.car.inside["glove box"];
+console.log(gloveBoxContents);
+
+
+// Accessing Nested Arrays
+var myPlants = [
+  {
+    type: "flowers",
+    list: [
+      "rose",
+      "tulip",
+      "dandelion"
+    ]
+  },
+  {
+    type: "trees",
+    list: [
+      "palm",
+      "pine",
+      "birch"
+    ]
+  }
+];
+// access the second tree
+var mySecondTree = myPlants[1].list[1];
+console.log(mySecondTree);
+
+
+
+
+
+
+
+
