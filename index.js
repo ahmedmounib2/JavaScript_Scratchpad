@@ -960,9 +960,165 @@ var mySecondTree = myPlants[1].list[1];
 console.log(mySecondTree);
 
 
+// record collection
+var collection = {
+  "2548": {
+    "album": "Slippery when wet",
+    "artist": "Bon Jovi",
+    "tracks": [
+      "let It Rock",
+      "You Give Love a Bad Name"
+    ]
+  },
+  "2468": {
+    "album": "1999",
+    "artist": "Prince",
+    "tracks": [
+      "1999",
+      "Little Red Corvette"
+    ]
+  },
+  "1245": {
+    "artist": "Robert Palmer",
+    "tracks": [ ]
+  },
+  "5439": {
+    "album": "Abba Gold"
+  }
+};
+// keep a copy of the collection for tests
+var collectionCopy = JSON.parse(JSON.stringify(collection));
+
+function updateRecords(id, prop, value) {
+  if (value === "") {
+    delete collection[id][prop];
+  } else if (prop === "tracks") {
+    collection[id][prop] = collection[id][prop] || [];
+    collection[id][prop].push(value);
+  } else {
+    collection[id][prop] = value;
+  }
 
 
+  return collection;
+}
+
+updateRecords(2468, "tracks", "test")
+console.log(updateRecords(5439, "artist", "Abba"));
+
+// Iterate with wile Loops
+var myArray = [];
+
+var i = 0;
+while(i < 5) {
+  myArray.push(i);
+  i++;
+}
+console.log(myArray);
+
+// Iterate with For Loops
+var ourArray = [];
+
+for (var i = 0; i < 5; i++) {
+  ourArray.push(i);
+}
+
+var myArray = [];
 
 
+for (var i  = 1; i < 6; i++){
+  myArray.push(i);
+}
+
+console.log(myArray);
 
 
+// Iterate even Numbers with a For Loop
+var ourArray = [];
+
+for (var i = 0; i < 10; i += 2) {
+  ourArray.push(i);
+}
+
+console.log(ourArray);
+
+
+// Iterate Odd Numbers with a For Loop
+var myArray = [];
+
+for (var i = 1; i < 11; i += 2){
+  myArray.push(i);
+}
+
+console.log(myArray)
+
+
+// count Bacwards with a For Loop
+var ourArray = [];
+
+for (var i = 10; i > 0; i -= 2) {
+  ourArray.push(i);
+}
+
+console.log(ourArray);
+
+var myArray = [];
+
+for (var i = 9; i > 0 ; i -= 2) {
+  myArray.push(i);
+}
+
+console.log(myArray);
+
+
+// Iterate Through an Array with a For Loop
+var ourArray = [9, 10, 11, 12];
+var ourTotal = 0;
+
+for (var i = 0; i < ourArray.length; i++) {
+  ourTotal += ourArray[i];
+}
+
+console.log(ourTotal);
+
+var total = 0;
+var myArr = [ 2, 3, 4, 5, 6];
+
+for (var i = 0; i < myArray.length; i++) {
+  total += myArr[i];
+}
+
+console.log(total)
+
+
+// Nesting For Loops
+function multiplyAll(arr) {
+  var product = 1;
+
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr[i].length; j++) {
+      product *= arr[i][j];
+    }
+  }
+
+
+  return product;
+}
+
+var product = multiplyAll([[1,2],[3,4],[5,6,7]]);
+
+console.log(product)
+
+
+// Iterate with Do .. while Loops
+var myArray = [];
+var i = 10;
+
+do {
+  myArray.push(i);
+  i++;
+} while (i < 5) 
+
+console.log(i, myArray);
+
+// Profile Lookup
