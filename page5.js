@@ -213,3 +213,123 @@ function freezeObj() {
 
 const PI = freezeObj();
 console.log("The value of PI is:", PI); // This will log 3.14
+
+
+// Use Arrow fn to write Concise Anonymous functions
+/*
+var magic = function() {
+  return new Data();
+}; */
+
+const magic = () => new Data();
+
+
+// write Arrow Functions with Parameters
+const myConcat = (arr1, arr2) => arr1.concat(arr2);
+
+console.log(myConcat([1, 2], [3, 4, 5]));
+
+
+// Write Higher Order Arrow Functions
+const realNumberArray = [4, 5.6, -9,8, 3,14, 42, 6, 8.34, -2];
+
+const squarelList = (arr) => {
+  const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => x * x);
+  return squaredIntegers;
+};
+
+const squaredIntegers = squarelList(realNumberArray);
+console.log(squaredIntegers);
+
+
+const increment = (function() {
+  return function increment(number, value = 1) {
+    return number + value;
+  };
+})();
+
+
+console.log(increment(5, 2));
+console.log(increment(5));
+
+
+// use the Rest Operator with Function Parameters
+/*
+const sum = (function() {
+  return function sum(x, y , z) {
+    const args = [ x , y , z];
+    return args.reduce((a, b) => a + b, 0);
+  };
+})();
+console.log(sum(1 , 2 , 3));
+*/
+
+const sum = (function() {
+  return function sum(...args) {
+    return args.reduce((a, b) => a + b, 0);
+  };
+})();
+console.log(sum(1 , 2 , 3, 4)); // now we can add any number of args
+
+
+// Use the Spread Operator to Evaluate Arrays in-Place
+const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+let arr2;
+(function() {
+  arr2 = arr1; 
+  arr1[0] = 'potato'
+})();
+console.log(arr2);
+
+
+const arr3 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+let arr4;
+(function() {
+  arr4 = [...arr3]; 
+  arr3[0] = 'potato'
+})();
+console.log(arr4);
+
+
+// Use Destructing Assignment to Assign Variables from Objects
+var voxel = {x: 3.6, y: 7.4, z: 6.54};
+
+var x = voxel.x; //x = 3.6
+var y = voxel.y // y = 7.4
+var z = voxel.z // z = 6.54
+
+const { x:a, y:b, z:c} = voxel; // a= 3.6, B= 7,4, C= 6.54
+
+
+const AVG_TEMPERATURES = {
+  today: 77.5,
+  tomorrow: 79
+};
+
+function getTempOfTmrw(avgTemperatures) {
+  "use strict";
+
+  const { tomorrow: tempOfTomorrow} = avgTemperatures;
+
+  return tempOfTomorrow;
+}
+
+console.log(getTempOfTmrw(AVG_TEMPERATURES));
+
+
+// Destructing Assignment with Nestted Objects
+const LOCAL_FORECAST = {
+  today: { min: 72, max: 83},
+  tomorrow: {min: 73.3, max: 84.6}
+};
+
+function getMaxOfTmrw(forecast) {
+  "use strict";
+
+  const { tomorrow: {max: maxOfTomorrow }}= forecast;
+
+  return maxOfTomorrow;
+}
+
+console.log(getMaxOfTmrw(LOCAL_FORECAST));
+
