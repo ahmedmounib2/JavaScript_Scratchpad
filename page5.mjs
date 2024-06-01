@@ -333,3 +333,4 @@ function getMaxOfTmrw(forecast) {
 
 console.log(getMaxOfTmrw(LOCAL_FORECAST));
 
+
